@@ -5,16 +5,16 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
-  margin-bottom: 22px;
+  /* margin-bottom: 22px; */
   
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
   color: ${({ theme }) => theme.COLORS.WHITE};
   
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+  border: 0;
   
   > input {
-    height: 46px;
+    height: 100%;
     width: 100%;
 
     padding: 12px;

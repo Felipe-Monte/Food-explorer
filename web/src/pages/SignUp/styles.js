@@ -7,18 +7,21 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 350px;
+
+  text-align: center;
 `;
 
 export const Form = styled.form`
   background-color: ${({ theme }) => theme.COLORS.GRAY_800};
-  padding: 54px 32px;
+  padding: 64px;
   border-radius: 7px;
 
-  min-width: 370px;
+  min-width: 476px;
   
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 
   > h1 {
     font-size: 24px;
@@ -36,4 +39,13 @@ export const Form = styled.form`
     gap: 7px;
   }
   
+  > label {
+    margin-top: 22px;
+    text-align: left;
+    color: ${({ theme }) => theme.COLORS.WHITE_100};
+  }
+
+  > button {
+    margin-top: 22px;
+  }
 `;

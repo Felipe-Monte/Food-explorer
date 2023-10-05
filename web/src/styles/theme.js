@@ -6,8 +6,12 @@ export default {
      GRAY_600: "#5A595E",
   
       WHITE: "#F4EDE8",
+      WHITE_100: "#C4C4CC",
+      GRAY_400: "#00070A",
+
+      GRAY_500: "#00111A",
   
-      BRAND_600: "#633BBC",
+      BRAND_600: "#82F3FF",
       BRAND_500: "#750310",
     }
   };

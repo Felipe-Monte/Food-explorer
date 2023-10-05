@@ -7,6 +7,8 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { TitleLogo } from "../../components/TitleLogo"
 
+import imgLogo from '../../assets/poligono.svg'
+
 import { Container, Form } from "./styles";
 import { Link } from "react-router-dom";
 
@@ -22,7 +24,12 @@ export function SignIn() {
 
   return (
     <Container>
-      <TitleLogo text="Food explorer" />
+      <TitleLogo
+        text="Food explorer"
+        urlImg={imgLogo}
+        imgSize={50}
+        textSize={42}
+      />
 
       <Form>
         <h1>Faça seu login</h1>

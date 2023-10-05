@@ -1,28 +1,42 @@
-import { FiUser, FiLogOut } from 'react-icons/fi';
+import { FiUser, FiLogOut, FiSearch } from 'react-icons/fi';
 
 import { useAuth } from '../../hooks/auth';
 
-import { Container, User } from './styles';
+import { Container, Search } from './styles';
+
+import { TitleLogo } from '../../components/TitleLogo'
+import { Input } from '../../components/Input'
+import { Button } from '../../components/Button'
+
+import imgLogo from '../../assets/poligono.svg'
 
 export function Header() {
-    const { signOut, user } = useAuth();
+    const { signOut } = useAuth();
 
     return (
         <Container>
-            <h1>Menu</h1>
 
-            <aside>
-                <User>
-                    <span>Olá, <strong>{user.name}</strong></span>
-                    <small>
-                        <FiUser /> Perfil de {user.role}
-                    </small>
-                </User>
-            </aside>
+            <TitleLogo
+                text="Food explorer"
+                urlImg={imgLogo} 
+                imgSize={30}
+                textSize={28}
+            />
 
-            <button type="button" onClick={signOut}>
+            <Search>
+                <Input
+                    icon={FiSearch}
+                    placeholder="Busque por pratos ou ingredientes"
+                />
+            </Search>
+
+            <Button
+                title="Pedidos (0)"
+            />
+
+            <a type="button" onClick={signOut}>
                 <FiLogOut size={24} />
-            </button>
+            </a>
         </Container>
     );
 };

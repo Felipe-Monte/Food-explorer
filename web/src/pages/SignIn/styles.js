@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 300px;
+  gap: 350px;
 
   text-align: center;
 `;
@@ -25,7 +25,7 @@ export const Form = styled.form`
 
   > h1 {
     font-size: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   > a {
@@ -39,6 +39,12 @@ export const Form = styled.form`
   }
 
   > label {
+    margin-top: 22px;
     text-align: left;
+    color: ${({ theme }) => theme.COLORS.WHITE_100};
+  }
+  
+  > button {
+    margin-top: 22px;
   }
 `;

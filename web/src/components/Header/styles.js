@@ -2,54 +2,29 @@ import styled from "styled-components";
 
 export const Container = styled.nav`
   width: 100%;
+  height: 104px;
+
+  padding: 24px 123px;
 
   display: flex;  
-  max-width: 632px;
-  margin-bottom: 64px;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
 
-  > h1 {
-    flex: 1;
-  }
+  background-color: ${({theme}) => theme.COLORS.GRAY_500};
 
-  > button {
-        background-color: transparent;
-        border: none;
+  > button {  
+      width: 216px;
+
+      /* background-color: transparent; */
+      border: none;
     }
-
-  > aside {
-    display: flex;
-    align-items: center;
-
-    &::after {
-        content:""; 
-        height: 24px; 
-        width: 1px;
-        background-color: ${({ theme }) => theme.COLORS.GRAY_600};        
-        margin:0 16px;
-    }
-  }
 
   svg {
-    color: ${({ theme }) => theme.COLORS.GRAY_600};
+    color: ${({ theme }) => theme.COLORS.WHITE};
   }
 `;
 
-export const User = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-
-    > small {
-        color: ${({ theme }) => theme.COLORS.GRAY_600};
-        font-size: 14px;
-
-        display: flex;
-        align-items: center;
-        margin-top: 3px;
-
-        > svg {
-            margin-right: 5px;
-        }
-    }
-`;
+export const Search = styled.div`
+  width: 40%;
+`

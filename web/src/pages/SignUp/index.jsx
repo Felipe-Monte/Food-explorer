@@ -5,8 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
 import { Container, Form } from "./styles";
+
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { TitleLogo } from "../../components/TitleLogo";
+
+import imgLogo from '../../assets/poligono.svg'
 
 export function SignUp() {
   const [name, setName] = useState("");
@@ -35,24 +39,37 @@ export function SignUp() {
 
   return (
     <Container>
+      <TitleLogo
+        text="Food explorer"
+        urlImg={imgLogo}
+        imgSize={50}
+        textSize={42}
+      />
+
       <Form>
         <h1>Crie a sua conta</h1>
 
+        <label htmlFor="name">Seu nome</label>
         <Input
+          id="name"
           placeholder="Nome"
           type="text"
           icon={FiUser}
           onChange={e => setName(e.target.value)}
         />
 
+        <label htmlFor="email">Email</label>
         <Input
+          id="email"
           placeholder="E-mail"
           type="text"
           icon={FiMail}
           onChange={e => setEmail(e.target.value)}
         />
 
+        <label htmlFor="password">Senha</label>
         <Input
+          id="password"
           placeholder="Senha"
           type="password"
           icon={FiLock}
