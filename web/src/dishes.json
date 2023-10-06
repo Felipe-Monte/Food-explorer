@@ -20,5 +20,12 @@
     "name": "Prato 3",
     "description": "Descrição do Prato 3",
     "price": "R$ 29,99"
+  },
+  {
+    "imagePath": "src/assets/Mask-group-4.png",
+    "id": "4",
+    "name": "Prato 4",
+    "description": "Descrição do Prato 4",
+    "price": "R$ 29,99"
   }
 ]

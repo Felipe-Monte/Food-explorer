@@ -7,8 +7,8 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 350px;
-
+  gap: 15%;
+ 
   text-align: center;
 `;
 

@@ -6,8 +6,6 @@ export const Container = styled.div`
   
   > main {
     padding: 164px 124px;
-
-    
   }
 `;
 
@@ -16,7 +14,7 @@ export const Banner = styled.div`
   height: 260px;
 
   display: flex;
-  gap: 30%;
+  gap: 50%;
   justify-content: space-around;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
