@@ -2,24 +2,40 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+
+  border: 2px solid blue;
+    
+.carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: 15px;
+
+  text-align: center;
 
   width: 304px;
   height: 462px;
 
   padding: 24px;
 
-  background-color: ${({theme}) => theme.COLORS.GRAY_400};
+  border: 1px solid red;
+  background-color: ${({ theme }) => theme.COLORS.GRAY_400};
 
   .container-img {
     > img {
     width: 176px;
     height: 176px;
   }
-  }
-  
+}
+
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
   > h2 {
     font-size: 24px;
   }
@@ -30,11 +46,15 @@ export const Container = styled.div`
 
   > span {
     font-size: 32px;
-    color: ${({theme}) => theme.COLORS.BRAND_600};
+    color: ${({ theme }) => theme.COLORS.BRAND_600};
   }
 
   .container-button {
     display: flex;
     gap: 5px;
   }
+  }
+  
+}
+ 
 `

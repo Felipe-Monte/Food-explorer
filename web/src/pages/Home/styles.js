@@ -7,13 +7,7 @@ export const Container = styled.div`
   > main {
     padding: 164px 124px;
 
-    .carousel{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      border: 2px solid red;
-    }
+    
   }
 `;
 
