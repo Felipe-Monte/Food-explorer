@@ -1,10 +1,11 @@
 import { Container } from './styles'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import { Button } from '../Button'
 
-export function Carousel() {
+export function Carousel({ title }) {
   const [data, setData] = useState([])
+  const carousel = useRef(null)
 
   useEffect(() => {
     fetch("http://localhost:5173/src/dishes.json")
@@ -14,32 +15,50 @@ export function Carousel() {
 
   if (!data || !data.length) return null
 
+  const handleLeftClick = (e) => {
+    e.preventDefault()
+    carousel.current.scrollLeft -= carousel.current.offsetWidth
+  }
+
+  const handleRightClick = (e) => {
+    e.preventDefault()
+    carousel.current.scrollLeft += carousel.current.offsetWidth
+  }
+
   return (
-    <Container>
+    <Container >
+      <div className='button-left' onClick={handleLeftClick}></div>
 
-      {data.map((item) => (
-      
-        <div className='carousel'>
+      <h3>{title}</h3>
 
-          <div className='card' key={item.id}>
+      <div className="container-carousel" ref={carousel}>
 
-            <div className='container-img'>
-              <img src={item.imagePath} alt={`foto do prato ${item.name}`} />
-            </div>
+        {data.map((item) => (
 
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <span>{item.price}</span>
+          <div className='carousel'>
 
-            <div className='container-button'>
-              <Button title="Incluir" />
-              <Button title="Incluir" />
+            <div className='card' key={item.id}>
+
+              <div className='container-img'>
+                <img src={item.imagePath} alt={`foto do prato ${item.name}`} />
+              </div>
+
+              <h2>{item.name}</h2>
+              <p>{item.description}</p>
+              <span>{item.price}</span>
+
+              <div className='container-button'>
+                <Button title="Incluir" />
+                <Button title="Incluir" />
+              </div>
+
             </div>
 
           </div>
+        ))}
+      </div>
 
-        </div>
-      ))}
+      <div className='button-right' onClick={handleRightClick}></div>
 
     </Container>
   )

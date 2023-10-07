@@ -5,6 +5,12 @@ export const Container = styled.div`
   width: 100%;
   
   > main {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     padding: 164px 124px;
   }
 `;

@@ -30,7 +30,9 @@ export function Home() {
           </div>
         </Banner>
 
-        <Carousel />
+        <Carousel
+          title="Feito"
+        />
 
       </main>
     </Container>
