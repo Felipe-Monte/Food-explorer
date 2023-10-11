@@ -7,9 +7,9 @@ export const Container = styled.div`
   > main {
     width: 100%;
 
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
 
     padding: 164px 124px;
   }

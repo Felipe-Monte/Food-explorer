@@ -13,6 +13,7 @@ export const Container = styled.button`
   font-weight: 700;
 
   text-align: center;
+  white-space: nowrap;
 
   &:disabled {
     opacity: .5;

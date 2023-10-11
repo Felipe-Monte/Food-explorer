@@ -11,6 +11,6 @@ routes.use("/users", usersRouter);
 routes.use("/sessions", sessionsRouter);
 
 routes.use("/sales", salesRouter);
-routes.use("/products", productsRouter);
+routes.use("/dishes", productsRouter);
 
 module.exports = routes;

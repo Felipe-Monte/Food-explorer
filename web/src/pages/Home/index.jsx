@@ -1,19 +1,13 @@
-import { FiTruck, FiTag, FiShoppingCart } from 'react-icons/fi';
-
 import { Container, Banner } from "./styles";
 
 import { Header } from '../../components/Header';
-
-import { USER_ROLE } from '../../utils/sales'
-import { useAuth } from '../../hooks/auth';
+import { Footer } from '../../components/Footer'
 
 import bannerImg from '../../assets/bannerImg.png'
 
-import { Carousel } from '../../components/Carousel'
+import { Slider } from '../../components/Slider'
 
 export function Home() {
-  const { user } = useAuth()
-
   return (
     <Container>
       <Header />
@@ -30,11 +24,12 @@ export function Home() {
           </div>
         </Banner>
 
-        <Carousel
-          title="Feito"
-        />
+        <Slider />
 
       </main>
+
+      <Footer />
+
     </Container>
   )
 }
