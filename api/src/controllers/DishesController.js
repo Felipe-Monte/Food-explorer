@@ -2,7 +2,7 @@ const knex = require("../database/knex")
 
 class DishesController {
   async create(request, response) {
-    const { title, description, tags, category } = request.body
+    const { title, description, tags } = request.body
     const { user_id } = request.params
 
     const [dishe_id] = await knex("dishes").insert({
