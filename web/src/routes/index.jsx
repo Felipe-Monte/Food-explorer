@@ -5,7 +5,6 @@ import { USER_ROLE } from '../utils/sales';
 
 import { AdminRoutes } from './admin.routes';
 import { CustomerRoutes } from './customer.routes'
-import { SaleRoutes } from './sale.routes'
 
 import { AuthRoutes } from './auth.routes';
 
@@ -18,8 +17,6 @@ export function Routes() {
         return <AdminRoutes />
       case USER_ROLE.CUSTOMER:
         return <CustomerRoutes />
-      case USER_ROLE.SALE:
-        return <SaleRoutes />
       default:
         return <CustomerRoutes />
     }

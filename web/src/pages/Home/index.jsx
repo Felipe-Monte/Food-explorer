@@ -2,6 +2,7 @@ import { Container, Banner } from "./styles";
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer'
+import { Section } from '../../components/Section'
 
 import bannerImg from '../../assets/bannerImg.png'
 
@@ -24,7 +25,9 @@ export function Home() {
           </div>
         </Banner>
 
-        <Slider />
+        <Section title="Refeições">
+          <Slider />
+        </Section>
 
       </main>
 
