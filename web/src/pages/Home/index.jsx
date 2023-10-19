@@ -2,11 +2,10 @@ import { Container, Banner } from "./styles";
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer'
-import { Section } from '../../components/Section'
-
-import bannerImg from '../../assets/bannerImg.png'
 
 import { Slider } from '../../components/Slider'
+
+import bannerImg from '../../assets/bannerImg.png'
 
 export function Home() {
   return (
@@ -25,10 +24,10 @@ export function Home() {
           </div>
         </Banner>
 
-        <Section title="Refeições">
-          <Slider />
-        </Section>
-
+        <Slider title="Refeições" />
+        <Slider title="Sobremesas" />
+        <Slider title="Bebidas" />
+ 
       </main>
 
       <Footer />

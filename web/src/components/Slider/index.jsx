@@ -1,29 +1,37 @@
-import { Food } from '../Food'
-
-import { Navigation, A11y } from 'swiper/modules';
-
+import { Container } from './styles'
+import { Navigation, Pagination} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { FoodCard } from '../FoodCard';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
-export function Slider() {
+export function Slider({ title }) {
   return (
-    <Swiper
-      modules={[Navigation, A11y]}
-      spaceBetween={10}
-      slidesPerView={4}
-      navigation
-    >
-      <SwiperSlide><Food/></SwiperSlide>
-      <SwiperSlide><Food/></SwiperSlide>
-      <SwiperSlide><Food/></SwiperSlide>
-      <SwiperSlide><Food/></SwiperSlide>
-      <SwiperSlide><Food/></SwiperSlide>
-      <SwiperSlide><Food/></SwiperSlide>
-      <SwiperSlide><Food/></SwiperSlide>
-      <SwiperSlide><Food/></SwiperSlide>
-    
-    </Swiper>
+    <Container>
+      <h2>{title}</h2>
+      
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={0}
+        slidesPerView={4}
+        navigation
+      >
+        <SwiperSlide><FoodCard /></SwiperSlide>
+        <SwiperSlide><FoodCard /></SwiperSlide>
+        <SwiperSlide><FoodCard /></SwiperSlide>
+        <SwiperSlide><FoodCard /></SwiperSlide>
+        <SwiperSlide><FoodCard /></SwiperSlide>
+        <SwiperSlide><FoodCard /></SwiperSlide>
+        <SwiperSlide><FoodCard /></SwiperSlide>
+        <SwiperSlide><FoodCard /></SwiperSlide>
+        <SwiperSlide><FoodCard /></SwiperSlide>
+        
+      </Swiper>
+
+    </Container>
   );
-};
+}

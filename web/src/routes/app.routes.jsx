@@ -1,14 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { Home } from '../pages/Home';
-import { Dishes } from '../pages/Dishes';
 import { NotFound } from '../pages/NotFound';
 
-export function AdminRoutes() {
+export function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={< Home />} />
-      <Route path="/dishes" element={<Dishes />} />
 
       <Route path="*" exact={true} element={<NotFound />} />
     </Routes>

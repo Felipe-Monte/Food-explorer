@@ -10,7 +10,7 @@ export const Container = styled.div`
   flex-direction: column;
   
   > a {
-    color: ${({ theme }) => theme.COLORS.BRAND_500};
+    color: ${({ theme }) => theme.COLORS.BRAND_600};
     margin-top: 24px;
   }
 `;

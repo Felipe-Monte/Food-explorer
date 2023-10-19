@@ -43,6 +43,46 @@ class DishesController {
 
     return response.json()
   }
+
+  async index(request, response) {
+    const { title, user_id, tags } = request.query
+
+    let dishes
+
+    if (tags) {
+      const filterTags = tags.split(',').map(tag => tag.trim())
+
+      dishes = await knex("tags")
+        .select([
+          "dishes.id",
+          "dishes.title",
+          "dishes.user_id",
+        ])
+        .where("dishes.user_id", user_id)
+        .whereLike("dishes.title", `%${title}%`)
+        .whereIn("name", filterTags)
+        .innerJoin("dishes", "dishes.id", "tags.dishe_id")
+        .orderBy("dishes.title")
+
+    } else {
+      dishes = await knex("dishes")
+        .where({ user_id })
+        .whereLike("title", `%${title}%`)
+        .orderBy("title")
+    }
+
+    const userTags = await knex("tags").where({ user_id })
+    const dishesWithTags = dishes.map(dishe => {
+      const disheTags = userTags.filter(tag => tag.dishe_id === dishe.id)
+
+      return {
+        ...dishe,
+        tags: disheTags
+      }
+    })
+
+    return response.json(dishesWithTags)
+  }
 }
 
 module.exports = DishesController
