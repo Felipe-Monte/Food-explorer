@@ -45,6 +45,15 @@ export const ContainerInputs = styled.div`
   gap: 32px;
 
   /* border: 2px solid green; */
+  .image{
+    flex: 25%;
+  }
+  .name{
+    flex: 50%;
+  }
+  .category{
+    flex: 25%;
+  }
 `
 
 export const ContainerTagsAndPrice = styled.div`
@@ -52,6 +61,29 @@ export const ContainerTagsAndPrice = styled.div`
 
   display: flex;
   gap: 32px;
+
+  .container-tags{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    height: 100%;
+    width: 100%;
+
+    /* padding: 12px; */
+    padding-left: 7px;
+    
+    background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    border: 0;
+    border-radius: 5px;
+
+  }
+
+  .price{
+    flex: 30%;
+  }
+
 `
 
 export const WrapperTextArea = styled.div`

@@ -1,6 +1,6 @@
 import { Container, FoodImg, ContainerButton } from './styles'
 
-import { BiHeart } from 'react-icons/bi'
+import { BiHeart, BiEdit} from 'react-icons/bi'
 
 import { ButtonMore } from '../ButtonMore'
 import { Button } from '../Button'
@@ -8,7 +8,7 @@ import { Button } from '../Button'
 export function FoodCard() {
   return (
     <Container>
-      <BiHeart />
+      <BiEdit />
 
       <FoodImg>
         <img src="src/assets/Mask-group-1.png" alt="imagem do prato" />
@@ -21,7 +21,7 @@ export function FoodCard() {
 
       <ContainerButton>
         <ButtonMore />
-        <Button title="botão 1" />
+        <Button title="Incluir" />
       </ContainerButton>
 
     </Container>

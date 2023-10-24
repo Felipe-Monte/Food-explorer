@@ -1,11 +1,17 @@
 import { Container, Form, ContainerInputs, ContainerTagsAndPrice, WrapperTextArea, ContainerButton, WrapperInput } from './styles'
 
 import { Header } from '../../components/Header'
+
 import { Input } from '../../components/Input'
+import { InputImg } from '../../components/InputImg'
+import { InputCategory } from '../../components/InputCategory'
+
+import { Tag } from '../../components/Tag'
+
 import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 
-export function AddDish() {
+export function EditDish() {
   return (
     <Container>
       <Header />
@@ -13,22 +19,22 @@ export function AddDish() {
       <main>
 
         <Form>
-          <h1>Adicionar Prato</h1>
+          <h1>Editar Prato</h1>
 
           <ContainerInputs>
-            <WrapperInput>
+            <WrapperInput className='image'>
               <label htmlFor="input1">Imagem do prato</label>
-              <Input placeholder="input 1" id="input1" />
+              <InputImg placeholder="input 1" id="input1" />
             </WrapperInput>
 
-            <WrapperInput>
+            <WrapperInput className='name'>
               <label htmlFor="input2">Nome</label>
-              <Input placeholder="input 2" id="input2" />
+              <Input placeholder="Ex: salada" id="input2" />
             </WrapperInput>
 
-            <WrapperInput>
+            <WrapperInput className='category'>
               <label htmlFor="input3">Categoria</label>
-              <Input placeholder="input 3" id="input3" />
+              <InputCategory options={["Refeição", "Sobremesa", "Bebida"]} id="input3" />
             </WrapperInput>
 
           </ContainerInputs>
@@ -36,12 +42,15 @@ export function AddDish() {
           <ContainerTagsAndPrice>
             <WrapperInput>
               <label htmlFor="input4">Ingredientes</label>
-              <Input placeholder="input 1" id="input4" />
+              <div id='input4' className='container-tags'>
+                  <Tag title='item1'/>
+                  <Tag title='item2'/>
+              </div>
             </WrapperInput>
 
-            <WrapperInput>
+            <WrapperInput className='price'>
               <label htmlFor="input5">Preço</label>
-              <Input placeholder="input 2" id="input5" />
+              <Input type="number" placeholder="R$: 00,00" id="input5" />
             </WrapperInput>
 
           </ContainerTagsAndPrice>
@@ -52,7 +61,7 @@ export function AddDish() {
           </WrapperTextArea>
 
           <ContainerButton>
-            <Button title="Salvar alterações"/>
+            <Button title="Salvar alterações" />
           </ContainerButton>
 
         </Form>
