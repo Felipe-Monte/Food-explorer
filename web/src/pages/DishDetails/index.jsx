@@ -6,13 +6,15 @@ import { Button } from '../../components/Button'
 import { ButtonMore } from '../../components/ButtonMore'
 import { Footer } from '../../components/Footer'
 
+import { Link } from 'react-router-dom'
+
 export function DishDetails() {
   return (
     <Container>
 
       <Header />
 
-      <a href="#">Voltar</a>
+      <Link to="/">Voltar</Link>
 
       <main>
 

@@ -1,14 +1,19 @@
-import { Container, FoodImg, ContainerButton } from './styles'
+import { Container, FoodImg, ContainerButton, Edit } from './styles'
 
-import { BiHeart, BiEdit} from 'react-icons/bi'
+import { BiHeart, BiEdit } from 'react-icons/bi'
 
 import { ButtonMore } from '../ButtonMore'
 import { Button } from '../Button'
 
+
 export function FoodCard() {
+
   return (
-    <Container>
-      <BiEdit />
+    <Container to="/details">
+
+      <Edit to="/edit">
+        <BiEdit />
+      </Edit>
 
       <FoodImg>
         <img src="src/assets/Mask-group-1.png" alt="imagem do prato" />

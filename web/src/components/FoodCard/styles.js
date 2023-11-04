@@ -1,6 +1,9 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+import { Link } from 'react-router-dom'
+
+
+export const Container = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,14 +18,7 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.GRAY_400};
   position: relative;
 
-  > svg {
-    width: 25px;
-    height: 25px;
-
-    position: absolute;
-    top: 15px;
-    right: 15px;
-  }
+  
 
   > h1 {
     text-align: center;
@@ -45,6 +41,19 @@ export const Container = styled.div`
     font-weight: 400;
 
     color: ${({ theme }) => theme.COLORS.BRAND_600};
+  }
+`
+
+export const Edit = styled(Link)`
+
+> svg {
+    width: 30px;
+    height: 30px;
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
   }
 `
 

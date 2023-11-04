@@ -34,6 +34,7 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+    color: ${({ theme }) => theme.COLORS.WHITE};
   }
 
   button, a {
@@ -41,7 +42,7 @@ export default createGlobalStyle`
     transition: filter 0.2s;
   }
 
-  button:hover, a:hover {
+  button:hover {
     filter: brightness(0.7);
   }
 `;
