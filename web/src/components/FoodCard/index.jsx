@@ -1,13 +1,27 @@
-import { Container, FoodImg, ContainerButton, Edit } from './styles'
-
-import { BiHeart, BiEdit } from 'react-icons/bi'
-
-import { ButtonMore } from '../ButtonMore'
-import { Button } from '../Button'
-
+import React, { useEffect, useState } from 'react';
+import { Container, FoodImg, ContainerButton, Edit } from './styles';
+import { BiHeart, BiEdit } from 'react-icons/bi';
+import { ButtonMore } from '../ButtonMore';
+import { Button } from '../Button';
+import { api } from '../../services/api';
 
 export function FoodCard() {
+  const [dishes, setDishes] = useState([]);
 
+  useEffect(() => {
+    // Realize a chamada à API para obter a lista de pratos
+    api.get('/dishes?user_id=1&title&tag')
+      .then(response => {
+        const dishData = response.data;
+        setDishes(dishData);
+
+        // Exibe os dados no console
+        console.log('Dados dos pratos:', dishData);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar os pratos:', error);
+      });
+  }, []);
   return (
     <Container to="/details">
 

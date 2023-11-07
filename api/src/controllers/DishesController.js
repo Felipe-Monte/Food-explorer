@@ -69,7 +69,7 @@ class DishesController {
 
     } else {
       dishes = await knex("dishes")
-        .where({ user_id })
+        .where({ user_id }) 
         .whereLike("title", `%${title}%`)
         .orderBy("title")
     }
