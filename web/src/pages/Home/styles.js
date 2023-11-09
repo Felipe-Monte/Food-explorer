@@ -12,7 +12,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center; */
 
-    padding: 164px 124px;
+    padding: 164px 124px 50px 124px;
   }
 `;
 

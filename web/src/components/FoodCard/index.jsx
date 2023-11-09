@@ -1,48 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Container, FoodImg, ContainerButton, Edit } from './styles';
-import { BiHeart, BiEdit } from 'react-icons/bi';
+import { BiEdit } from 'react-icons/bi';
 import { ButtonMore } from '../ButtonMore';
 import { Button } from '../Button';
-import { api } from '../../services/api';
 
-export function FoodCard() {
-  const [dishes, setDishes] = useState([]);
-
-  useEffect(() => {
-    // Realize a chamada à API para obter a lista de pratos
-    api.get('/dishes?user_id=1&title&tag')
-      .then(response => {
-        const dishData = response.data;
-        setDishes(dishData);
-
-        // Exibe os dados no console
-        console.log('Dados dos pratos:', dishData);
-      })
-      .catch(error => {
-        console.error('Erro ao buscar os pratos:', error);
-      });
-  }, []);
+export function FoodCard({ dish }) {
   return (
-    <Container to="/details">
-
-      <Edit to="/edit">
+    <Container to={`/details/${dish.id}`}>
+      <Edit to={`/edit/${dish.id}`}>
         <BiEdit />
       </Edit>
 
       <FoodImg>
-        <img src="src/assets/Mask-group-1.png" alt="imagem do prato" />
+        <img src={dish.image} alt={`Imagem de ${dish.title}`} />
       </FoodImg>
 
-      <h1>Prato 1</h1>
-      <p>Descrição do prato</p>
+      <h1>{dish.title}</h1>
+      <p>{dish.description}</p>
 
-      <span>29,99</span>
+      <span>{dish.price}</span>
 
       <ContainerButton>
         <ButtonMore />
         <Button title="Incluir" />
       </ContainerButton>
-
     </Container>
-  )
+  );
 }

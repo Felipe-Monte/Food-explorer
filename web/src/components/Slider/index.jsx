@@ -1,37 +1,37 @@
-import { Container } from './styles'
-import { Navigation, Pagination} from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Container } from './styles';
+
+// import Swiper core and required modules
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import { FoodCard } from '../FoodCard';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-export function Slider({ title }) {
+export function Slider({ title, dishes }) {
   return (
     <Container>
       <h2>{title}</h2>
-      
+
       <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={0}
+        // install Swiper modules
+        modules={[Navigation]}
+        spaceBetween={50}
         slidesPerView={4}
         navigation
       >
-        <SwiperSlide><FoodCard /></SwiperSlide>
-        <SwiperSlide><FoodCard /></SwiperSlide>
-        <SwiperSlide><FoodCard /></SwiperSlide>
-        <SwiperSlide><FoodCard /></SwiperSlide>
-        <SwiperSlide><FoodCard /></SwiperSlide>
-        <SwiperSlide><FoodCard /></SwiperSlide>
-        <SwiperSlide><FoodCard /></SwiperSlide>
-        <SwiperSlide><FoodCard /></SwiperSlide>
-        <SwiperSlide><FoodCard /></SwiperSlide>
-        
+        {dishes.map((dish) => (
+          <SwiperSlide key={dish.id}>
+            <FoodCard dish={dish} /> {/* Passa o objeto do prato para o componente FoodCard */}
+          </SwiperSlide>
+        ))}
       </Swiper>
-
     </Container>
+
   );
-}
+};
