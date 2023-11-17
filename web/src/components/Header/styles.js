@@ -11,11 +11,18 @@ export const Container = styled.nav`
   justify-content: center;
   gap: 50px;
 
-  background-color: ${({theme}) => theme.COLORS.GRAY_500};
+  background-color: ${({ theme }) => theme.COLORS.GRAY_500};
 
   > button {  
       width: 216px;
 
+      /* background-color: transparent; */
+      border: none;
+    }
+
+    .add_button {  
+      width: 50px;
+      font-size: 20px;
       /* background-color: transparent; */
       border: none;
     }

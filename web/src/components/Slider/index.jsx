@@ -19,9 +19,8 @@ export function Slider({ title, dishes }) {
       <h2>{title}</h2>
 
       <Swiper
-        // install Swiper modules
         modules={[Navigation]}
-        spaceBetween={50}
+        spaceBetween={0}
         slidesPerView={4}
         navigation
       >

@@ -10,15 +10,23 @@ import { Button } from '../../components/Button'
 
 import imgLogo from '../../assets/poligono.svg'
 
+import { useNavigate } from 'react-router-dom';
+
 export function Header() {
     const { signOut } = useAuth();
+
+    const navigate = useNavigate()
+
+    function handleNavigate() {
+        navigate("/add")
+    }
 
     return (
         <Container>
 
             <TitleLogo
                 text="Food explorer"
-                urlImg={imgLogo} 
+                urlImg={imgLogo}
                 imgSize={30}
                 textSize={28}
             />
@@ -32,6 +40,12 @@ export function Header() {
 
             <Button
                 title="Pedidos (0)"
+            />
+
+            <Button
+                title="+"
+                className="add_button"
+                onClick={handleNavigate}
             />
 
             <a type="button" onClick={signOut}>

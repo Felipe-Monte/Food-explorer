@@ -2,30 +2,11 @@ import styled from "styled-components"
 
 import { Link } from 'react-router-dom'
 
-// export const ContainerCard = styled.div`
-//   border: 1px solid red;
-
-//   display: flex;
-//   justify-content: center;
-//   gap: 15px;
-// `
-
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+export const Content = styled(Link)`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   
-  width: 304px;
-  height: 462px;
-
-  padding: 24px;
-
-  background-color: ${({ theme }) => theme.COLORS.GRAY_400};
-  position: relative;
-
- 
   > h1 {
     text-align: center;
     font-size: 24px;
@@ -48,6 +29,23 @@ export const Container = styled.div`
 
     color: ${({ theme }) => theme.COLORS.BRAND_600};
   }
+`
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  
+  width: 304px;
+  height: 462px;
+
+  padding: 24px;
+
+  background-color: ${({ theme }) => theme.COLORS.GRAY_400};
+  position: relative;
+
 `
 
 export const Edit = styled(Link)`

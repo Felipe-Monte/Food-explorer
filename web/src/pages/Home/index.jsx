@@ -36,9 +36,9 @@ export function Home() {
           </div>
         </Banner>
 
-        <Slider title="Pratos em Destaque" dishes={dishes} />
-        {/* <Slider title="Pratos em Destaque" dishes={dishes} />
-        <Slider title="Pratos em Destaque" dishes={dishes} /> */}
+        <Slider title="Refeições" dishes={dishes} />
+        <Slider title="Sobremesas" dishes={dishes} />
+        <Slider title="Bebidas" dishes={dishes} />
 
       </main>
       <Footer />

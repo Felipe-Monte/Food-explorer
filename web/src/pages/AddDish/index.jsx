@@ -1,5 +1,5 @@
 import { Container, Form, ContainerInputs, ContainerTagsAndPrice, WrapperTextArea, ContainerButton, WrapperInput } from './styles'
-
+import { useState } from 'react'
 import { Header } from '../../components/Header'
 
 import { Input } from '../../components/Input'
@@ -13,7 +13,19 @@ import { Footer } from '../../components/Footer'
 
 import { Link } from 'react-router-dom'
 
-export function EditDish() {
+export function AddDish() {
+  const [tags, setTags] = useState([])
+  const [newTag, setNewTag] = useState("")
+
+  function handleAddTag() {
+    setTags(prevState => [...prevState, newTag])
+    setNewTag("")
+  }
+
+  function handleRemoveLink(deleted){
+    setTags(prevState => prevState.filter(tag => tag !== deleted))
+  }
+
   return (
     <Container>
       <Header />
@@ -24,7 +36,7 @@ export function EditDish() {
 
           <Link to="/">Voltar</Link>
 
-          <h1>Editar Prato</h1>
+          <h1>Adicionar Prato</h1>
 
           <ContainerInputs>
             <WrapperInput className='image'>
@@ -48,8 +60,22 @@ export function EditDish() {
             <WrapperInput>
               <label htmlFor="input4">Ingredientes</label>
               <div id='input4' className='container-tags'>
-                <Tag title='item1' />
-                <Tag title='item2' />
+                {
+                  tags.map((tag, index) => (
+                    <Tag
+                      key={String(index)}
+                      value={tag}
+                      onClick={() => {handleRemoveLink(tag)}}
+                    />
+                  ))
+                }
+                <Tag
+                  isNew
+                  placeholder="Nova tag"
+                  value={newTag}
+                  onChange={(e) => setNewTag(e.target.value)}
+                  onClick={handleAddTag}
+                />
               </div>
             </WrapperInput>
 
