@@ -13,7 +13,13 @@ import { Footer } from '../../components/Footer'
 
 import { Link } from 'react-router-dom'
 
+import { api } from '../../services/api'
+
 export function AddDish() {
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+  const [price, setPrice] = useState("")
+
   const [tags, setTags] = useState([])
   const [newTag, setNewTag] = useState("")
 
@@ -22,8 +28,19 @@ export function AddDish() {
     setNewTag("")
   }
 
-  function handleRemoveLink(deleted){
+  function handleRemoveLink(deleted) {
     setTags(prevState => prevState.filter(tag => tag !== deleted))
+  }
+
+  async function handleNewDish() {
+    await api.post("/dishes", {
+      title,
+      description,
+      price,
+      tags
+    })
+
+    alert("Prato criado !")
   }
 
   return (
@@ -46,14 +63,17 @@ export function AddDish() {
 
             <WrapperInput className='name'>
               <label htmlFor="input2">Nome</label>
-              <Input placeholder="Ex: salada" id="input2" />
+              <Input
+                id="input2"
+                placeholder="Ex: salada"
+                onChange={(e) => setTitle(e.target.value)}
+              />
             </WrapperInput>
 
             <WrapperInput className='category'>
               <label htmlFor="input3">Categoria</label>
               <InputCategory options={["Refeição", "Sobremesa", "Bebida"]} id="input3" />
             </WrapperInput>
-
           </ContainerInputs>
 
           <ContainerTagsAndPrice>
@@ -65,7 +85,7 @@ export function AddDish() {
                     <Tag
                       key={String(index)}
                       value={tag}
-                      onClick={() => {handleRemoveLink(tag)}}
+                      onClick={() => { handleRemoveLink(tag) }}
                     />
                   ))
                 }
@@ -81,18 +101,31 @@ export function AddDish() {
 
             <WrapperInput className='price'>
               <label htmlFor="input5">Preço</label>
-              <Input type="number" placeholder="R$: 00,00" id="input5" />
+              <Input
+                id="input5"
+                type="number"
+                placeholder="R$: 00,00"
+                onChange={(e) => setPrice(e.target.value)}
+              />
             </WrapperInput>
 
           </ContainerTagsAndPrice>
 
           <WrapperTextArea>
             <label htmlFor="textarea">Descrição</label>
-            <textarea id="textarea"></textarea>
+            <textarea
+              id="textarea"
+              onChange={(e) => setDescription(e.target.value)}
+            >
+
+            </textarea>
           </WrapperTextArea>
 
           <ContainerButton>
-            <Button title="Salvar alterações" />
+            <Button 
+              title="Salvar alterações" 
+              onClick={handleNewDish}
+            />
           </ContainerButton>
 
         </Form>

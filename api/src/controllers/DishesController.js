@@ -1,29 +1,31 @@
 const knex = require("../database/knex")
 
 class DishesController {
-  async create(request, response) {
-    const { title, description, price, tags } = request.body
-    const user_id = request.user.id
+  // async create(request, response) {
+  //   //coloque essa responsabilidade pro controller que recebe a imagem
 
-    const [dishe_id] = await knex("dishes").insert({
-      title,
-      description,
-      price,
-      user_id
-    })
+  //   // const { title, description, price, tags } = request.body
+  //   // const user_id = request.user.id
 
-    const tagsInsert = tags.map(name => {
-      return {
-        dishe_id,
-        name,
-        user_id
-      }
-    })
+  //   // const [dishe_id] = await knex("dishes").insert({
+  //   //   title,
+  //   //   description,
+  //   //   price,
+  //   //   user_id
+  //   // })
 
-    await knex("tags").insert(tagsInsert)
+  //   // const tagsInsert = tags.map(name => {
+  //   //   return {
+  //   //     dishe_id,
+  //   //     name,
+  //   //     user_id
+  //   //   }
+  //   // })
 
-    return response.json()
-  }
+  //   // await knex("tags").insert(tagsInsert)
+
+  //   // return response.json()
+  // }
 
   async show(request, response) {
     const { id } = request.params
