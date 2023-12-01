@@ -5,40 +5,30 @@ const DiskStorage = require("../providers/DiskStorage")
 class DishImageController {
   async create(request, response) {
     const user_id = request.user.id
-    // const imageFilename = request.file.filename
+    const { title, description, price, tags } = request.body
+    const imageFilename = request.file.filename
 
-     const { title, description, price, tags } = request.body
-    
-     const [dishe_id] = await knex("dishes").insert({
-       title,
-       description,
-       price,
-       user_id
-     })
+    const [dishe_id] = await knex("dishes").insert({
+      title,
+      description,
+      price,
+      image: imageFilename,
+      user_id
+    })
 
-     const tagsInsert = tags.map(name => {
-       return {
-         dishe_id,
-         name,
-         user_id
-       }
-     })
+    const tagsArray = Array.isArray(tags) ? tags : [tags]
 
-     await knex("tags").insert(tagsInsert)
+    const tagsInsert = tagsArray.map(name => {
+      return {
+        dishe_id,
+        name,
+        user_id
+      }
+    })
 
-    // const diskStorage = new DiskStorage()
+    await knex("tags").insert(tagsInsert)
 
-    // const filename = await diskStorage.saveFile(imageFilename)
-
-    // const dish = await knex("dishes").insert({ 
-    //   image: filename,
-    //   title, 
-    //   description, 
-    //   price, 
-    //   tags  
-    // })
-
-     return response.json()
+    return response.json()
   }
 }
 
