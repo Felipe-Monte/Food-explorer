@@ -1,26 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { Container, Banner } from "./styles";
+import React, { useState, useEffect } from "react"
+import { Container, Banner } from "./styles"
 
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-import bannerImg from '../../assets/bannerImg.png';
+import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import bannerImg from '../../assets/bannerImg.png'
 
-import { Slider } from "../../components/Slider";
-import { api } from "../../services/api";
+import { Slider } from "../../components/Slider"
+import { api } from "../../services/api"
 
 export function Home() {
-  const [dishes, setDishes] = useState([]);
+  const [dishes, setDishes] = useState([])
 
   useEffect(() => {
-    api.get('/dishes?user_id=1&title&tag') // Você pode ajustar o usuário conforme necessário
+    api.get('/dishes?user_id=1&title&tag')
       .then(response => {
-        const dishData = response.data;
-        setDishes(dishData);
+        const dishData = response.data.map(dish => ({
+          ...dish,
+          image: `${api.defaults.baseURL}/files/${dish.image}`,
+        }))
+        setDishes(dishData)
       })
       .catch(error => {
-        console.error('Erro ao buscar os pratos:', error);
-      });
-  }, []);
+        console.error('Erro ao buscar os pratos:', error)
+      })
+  }, [])
+
+  // useEffect(() => {
+  //   api.get('/dishes?user_id=1&title&tag')
+  //     .then(response => {
+  //       const dishData = response.data
+  //       setDishes(dishData)
+  //     })
+  //     .catch(error => {
+  //       console.error('Erro ao buscar os pratos:', error)
+  //     })
+  // }, [])
 
   return (
     <Container>
@@ -43,5 +57,5 @@ export function Home() {
       </main>
       <Footer />
     </Container>
-  );
+  )
 }

@@ -65,12 +65,15 @@ export const FoodImg = styled.div`
   width: 176px;
   height: 176px;
 
+  border-radius: 50%;
 
   > img {
       width: 100%;
       height: 100%;
 
       background-size: cover;
+      object-fit: cover;
+      border-radius: 50%; 
     }
 `
 

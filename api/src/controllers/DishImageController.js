@@ -8,11 +8,15 @@ class DishImageController {
     const { title, description, price, tags } = request.body
     const imageFilename = request.file.filename
 
+    const diskStorage = new DiskStorage()
+
+    const filename = await diskStorage.saveFile(imageFilename)
+
     const [dishe_id] = await knex("dishes").insert({
       title,
       description,
       price,
-      image: imageFilename,
+      image: filename,
       user_id
     })
 
@@ -30,6 +34,7 @@ class DishImageController {
 
     return response.json()
   }
+
 }
 
 module.exports = DishImageController

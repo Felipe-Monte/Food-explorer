@@ -26,7 +26,7 @@ export function Slider({ title, dishes }) {
       >
         {dishes.map((dish) => (
           <SwiperSlide key={dish.id}>
-            <FoodCard dish={dish} /> {/* Passa o objeto do prato para o componente FoodCard */}
+            <FoodCard dish={dish} /> 
           </SwiperSlide>
         ))}
       </Swiper>
