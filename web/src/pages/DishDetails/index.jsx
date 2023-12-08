@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Container, Details, ImgFood, ContainerText, ContainerButton, Tags } from './styles'
 
 import { Header } from '../../components/Header'
@@ -6,9 +7,25 @@ import { Button } from '../../components/Button'
 import { ButtonMore } from '../../components/ButtonMore'
 import { Footer } from '../../components/Footer'
 
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+
+import { api } from '../../services/api'
 
 export function DishDetails() {
+  const [data, setData] = useState(null)
+
+  const params = useParams()
+
+  useEffect(() => {
+    async function fetchDishes() {
+      const response = await api.get(`/dishes/${params.id}`)
+      console.log(response.data)
+      setData(response.data)
+    }
+
+    fetchDishes()
+  }, [])
+
   return (
     <Container>
 
@@ -16,39 +33,46 @@ export function DishDetails() {
 
       <Link to="/">Voltar</Link>
 
-      <main>
+      {
+        data &&
+        <main>
 
-        <Details>
-          <ImgFood>
-            <img src="src/assets/Mask-group-12.png" alt="Foto do prato" />
-          </ImgFood>
+          <Details>
+            <ImgFood>
+              <img src={`${api.defaults.baseURL}/files/${data.image}`} alt="Foto do prato" />
+            </ImgFood>
 
-          <ContainerText>
+            <ContainerText>
 
-            <h2>Salada Ravanello</h2>
-            <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
+              <h2>{data.title}</h2>
+              <p>{data.description}</p>
 
-            <Tags>
-              <Tag title="alface" />
-              <Tag title="cebola" />
-              <Tag title="pão naam" />
-              <Tag title="pepino" />
-              <Tag title="rabanete" />
-              <Tag title="tomate" />
-            </Tags>
+              {
+                data.tags &&
+                <Tags>
+                  {
+                    data.tags.map(tag => (
+                      <Tag
+                        key={String(tag.id)}
+                        title={tag.name}
+                      />
+                    ))
+                  }
+                </Tags>
+              }
+
+              <ContainerButton>
+                <ButtonMore />
+                <Button title="incluir 25,90" />
+              </ContainerButton>
+
+            </ContainerText>
 
 
-            <ContainerButton>
-              <ButtonMore />
-              <Button title="incluir 25,90" />
-            </ContainerButton>
+          </Details>
 
-          </ContainerText>
-
-
-        </Details>
-
-      </main>
+        </main>
+      }
 
       <Footer />
 
