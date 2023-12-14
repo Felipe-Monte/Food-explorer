@@ -49,10 +49,13 @@ export const ImgFood = styled.div`
   width: 390px;
   height: 390px;
 
+  border-radius: 50%;
+
   > img {
     width: 100%;
     height: 100%;
     
+    border-radius: 50%;
   }
 `
 

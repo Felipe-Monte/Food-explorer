@@ -1,11 +1,15 @@
 import styled from "styled-components"
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 import { Link } from 'react-router-dom'
 
 export const Content = styled(Link)`
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 15px;
+
+    width: 100%;
   
   > h1 {
     text-align: center;
@@ -29,6 +33,21 @@ export const Content = styled(Link)`
 
     color: ${({ theme }) => theme.COLORS.BRAND_600};
   }
+
+  @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+
+    > h1 {
+      font-size: 14px;
+    }
+
+    > p {
+      display: none;
+    }
+
+    > span {
+      font-size: 16px;
+    }
+  }
 `
 
 export const Container = styled.div`
@@ -36,7 +55,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10 px;
   
   width: 304px;
   height: 462px;
@@ -46,6 +65,11 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.GRAY_400};
   position: relative;
 
+  @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+    
+    width: 210px;
+    height: 292px;
+  }
 `
 
 export const Edit = styled(Link)`
@@ -57,7 +81,14 @@ export const Edit = styled(Link)`
     position: absolute;
     top: 15px;
     right: 15px;
+  }
 
+  @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+
+    > svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 `
 
@@ -75,6 +106,11 @@ export const FoodImg = styled.div`
       object-fit: cover;
       border-radius: 50%; 
     }
+
+  @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+    width: 88px;
+    height: 88px;
+  }
 `
 
 export const ContainerButton = styled.div`
@@ -82,4 +118,10 @@ export const ContainerButton = styled.div`
   gap: 15px;
 
   width: 100%;
+
+  @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+    flex-direction: column;
+    gap: 0;
+    
+  }
 `

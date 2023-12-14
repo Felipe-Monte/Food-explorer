@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 export const Container = styled.nav`
   width: 100%;
@@ -12,7 +13,7 @@ export const Container = styled.nav`
   gap: 50px;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_500};
-
+  
   > button {  
       width: 216px;
 
@@ -30,8 +31,31 @@ export const Container = styled.nav`
   svg {
     color: ${({ theme }) => theme.COLORS.WHITE};
   }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    
+    padding: 0;
+    gap: 0;
+    
+    > button {  
+      display: none;
+    }
+
+    .add_button {  
+      display: none;
+    }
+
+    svg {
+      display: none;
+    }
+      
+    }
 `;
 
 export const Search = styled.div`
   width: 40%;
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: none;
+  }
 `
