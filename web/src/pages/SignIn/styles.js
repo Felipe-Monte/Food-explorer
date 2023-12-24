@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 export const Container = styled.div`
   height: 100vh;
@@ -10,6 +11,11 @@ export const Container = styled.div`
   gap: 15%;
  
   text-align: center;
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    flex-direction: column;
+    gap: 5%;
+  }
 `;
 
 export const Form = styled.form`
@@ -46,5 +52,16 @@ export const Form = styled.form`
   
   > button {
     margin-top: 22px;
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    min-width:100%;
+    padding: 0px 47px;
+
+    background-color: ${({ theme }) => theme.COLORS.GRAY_900};
+
+    > h1 {
+      display: none;
+    }
   }
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 export const Container = styled.div`
   width: 100%;
@@ -15,7 +16,7 @@ export const Container = styled.div`
 
     margin: 20px 0px 0px 120px;
 
-    color: ${({theme}) => theme.COLORS.WHITE};
+    color: ${({ theme }) => theme.COLORS.WHITE};
   }
 
   > main {
@@ -28,8 +29,20 @@ export const Container = styled.div`
 
     padding: 10px 122px;
 
-    /* border: 2px solid white; */
+    @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+      flex-direction: column;
+      padding: 0;
+
+      height: fit-content;
+    }
   }
+
+    @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+      
+      > a {
+        margin: 20px 0px 0px 50px;
+      }
+    }
 `
 
 export const Details = styled.div`
@@ -40,9 +53,12 @@ export const Details = styled.div`
 
   width: 100%;
   height: fit-content;
+ 
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    flex-direction: column;
+    gap: 0px;
 
-  /* border: 2px solid blue; */
-
+  }    
 `
 
 export const ImgFood = styled.div`
@@ -57,6 +73,11 @@ export const ImgFood = styled.div`
     
     border-radius: 50%;
   }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    width: 150px;
+    height: 150px;
+  }    
 `
 
 export const ContainerText = styled.div`
@@ -66,8 +87,6 @@ export const ContainerText = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   gap: 25px;
-
-  /* border: 2px solid orange; */
   
   > h2 {
     font-size: 40px;
@@ -80,6 +99,22 @@ export const ContainerText = styled.div`
     font-style: normal;
     font-weight: 400;
   }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    max-width: 100%;
+    text-align: center;
+    padding: 5px;
+
+    > h2 {
+      font-size: 20px;
+    }
+
+    > p {
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    } 
+  } 
 `
 
 export const ContainerButton = styled.div`

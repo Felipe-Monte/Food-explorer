@@ -25,6 +25,8 @@ export const Container = styled.div`
  }
 
  @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+ 
+  padding: 5px;
   
     > h2 {
       margin-top: 50px;

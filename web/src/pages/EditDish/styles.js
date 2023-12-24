@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints"
 
 export const Container = styled.div`
   width: 100%;
@@ -7,10 +8,10 @@ export const Container = styled.div`
 
   > main {
     width: 100%;
-    height: 100%;
+    height: fit-content;
 
     display: flex;
-    justify-content: center;
+    justify-content: center; 
   }
 `
 
@@ -21,8 +22,6 @@ export const Form = styled.form`
 
   margin-top: 10px;
  
-  /* border: 2px solid white; */
-
   > a {
     width: fit-content;
 
@@ -30,7 +29,7 @@ export const Form = styled.form`
     font-style: normal;
     font-weight: 700;
 
-    color: ${({theme}) => theme.COLORS.WHITE};
+    color: ${({ theme }) => theme.COLORS.WHITE};
   }
 
   > h1 {
@@ -40,7 +39,20 @@ export const Form = styled.form`
 
     margin-top: 10px;
     margin-bottom: 32px;
+
+    @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+     margin-bottom: 5px;
+    }
+  
   }
+
+  @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+      min-width: 100%;
+      max-width: 100%;
+
+      padding: 5px;
+    }
+  
 `
 
 export const ContainerInputs = styled.div`
@@ -53,8 +65,6 @@ export const ContainerInputs = styled.div`
   align-items: center;
   gap: 32px;
 
-  /* border: 2px solid green; */
-
   .image{
     flex: 25%;
   }
@@ -64,6 +74,12 @@ export const ContainerInputs = styled.div`
   .category{
     flex: 25%;
   }
+
+  @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+      flex-direction: column;
+      gap: 0;
+    }
+  
 `
 
 export const ContainerTagsAndPrice = styled.div`
@@ -87,12 +103,17 @@ export const ContainerTagsAndPrice = styled.div`
     color: ${({ theme }) => theme.COLORS.WHITE};
     border: 0;
     border-radius: 5px;
-
   }
 
   .price{
     flex: 30%;
   }
+
+  @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+      flex-direction: column;
+      gap: 0;
+    }
+  
 
 `
 
@@ -129,8 +150,6 @@ export const ContainerButton = styled.div`
 
   margin-top: 32px;
 
-  /* border: 2px solid white; */
-
   > button {
     width: 172px;
   }
@@ -150,5 +169,10 @@ export const WrapperInput = styled.div`
     font-weight: 400;
 
     margin-bottom: 16px;
+
+    @media (max-width:${DEVICE_BREAKPOINTS.MD}) {
+      margin-bottom: 5px;
+    }
+  
   }
 `

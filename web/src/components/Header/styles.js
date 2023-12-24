@@ -13,6 +13,19 @@ export const Container = styled.nav`
   gap: 50px;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_500};
+
+  .icon-menu {
+    display: none;
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-pedido {
+    display: none;  
+    width: 30px;
+    height: 30px;
+  }
+
   
   > button {  
       width: 216px;
@@ -33,9 +46,18 @@ export const Container = styled.nav`
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    
-    padding: 0;
-    gap: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 0px;
+
+    .icon-menu {
+      display: block;  
+    }
+
+    .icon-pedido {
+      display: block;  
+    }
     
     > button {  
       display: none;
@@ -45,7 +67,7 @@ export const Container = styled.nav`
       display: none;
     }
 
-    svg {
+    .icon-logout {
       display: none;
     }
       

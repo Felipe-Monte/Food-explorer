@@ -1,4 +1,5 @@
-import { FiUser, FiLogOut, FiSearch } from 'react-icons/fi';
+import { FiLogOut, FiSearch, FiMenu  } from 'react-icons/fi';
+import { MdOutlineRestaurantMenu } from "react-icons/md";
 
 import { useAuth } from '../../hooks/auth';
 
@@ -23,6 +24,8 @@ export function Header() {
 
     return (
         <Container>
+
+            <FiMenu className='icon-menu'/>
 
             <TitleLogo
                 text="Food explorer"
@@ -49,8 +52,10 @@ export function Header() {
             />
 
             <a type="button" onClick={signOut}>
-                <FiLogOut size={24} />
+                <FiLogOut size={24} className='icon-logout'/>
             </a>
+
+            <MdOutlineRestaurantMenu className='icon-pedido'/>
         </Container>
     );
 };

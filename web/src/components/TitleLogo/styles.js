@@ -11,6 +11,7 @@ export const Container = styled.div`
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     gap: 10px;
+    margin-left: 10%;
 
     .container-logo {
       display: flex;
@@ -24,7 +25,7 @@ export const Container = styled.div`
       }
     }
     h2 {
-      font-size: 21px !important;
+      font-size: 16px !important;
       line-height: 30px;
       white-space: nowrap;
     }  
